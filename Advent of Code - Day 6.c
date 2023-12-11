@@ -1,4 +1,5 @@
-// cd "Users\User\Documents\Google Drive Sync\C Projects\Advent of Code"
+// This task is relatively easy using mathematical functions
+// Part two was purely done using a calculator, since there was overflow
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>

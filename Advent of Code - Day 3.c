@@ -1,4 +1,3 @@
-// cd "Users\User\Documents\Google Drive Sync\C Projects\Advent of Code"
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
