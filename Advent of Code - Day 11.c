@@ -78,6 +78,7 @@ int main(int argc, char *argv[]) {
         for (int j = i + 1; j < numGals; j++)
         {
             // Calc distance
+            // Just add distance if empty row in between
             int dist = 0;
             for (int row = 0; row < numEmptyRows; row++) {
                 if ((gals[i].y < emptyRows[row] && gals[j].y > emptyRows[row]) || (gals[j].y < emptyRows[row] && gals[i].y > emptyRows[row])) {
