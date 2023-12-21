@@ -26,9 +26,19 @@ int contains(int *arr, int elem, int n);
 int sum(int arr[], int n);
 void print_int_arr(int *arr, int n);
 
+typedef struct {
+    char *lid;
+    int focalLength, isPresent;
+} lens_t;
+
+typedef struct {
+    lens_t lenses[9];
+} box_t;
 
 int main(int argc, char *argv[]) {
     int sum = 0, brk = 0;
+
+    box_t boxes[256] = {0};
     
     while (1) {
         int maxStrLen = BSTRLN, len = 0;
@@ -56,24 +66,59 @@ int main(int argc, char *argv[]) {
         }
 
         
+        // printf("%d\n", curVal);
 
         str[len] = '\0';
-        // printf("%s\n", str);
 
-        int curVal = 0;
-        for (int i = 0; i < len; i++) {
-            curVal = ((curVal + str[i]) * 17) % 256;
-        }
-        // printf("%d\n", curVal);
-        sum += curVal;
+        // Wrong implementation
+        // for (int i = 0; i < len; i++) {
+        //     if (str[i] == '=') {
+        //         int curVal = 0;
+        //         for (int p = 0; p < i; p++) {
+        //             curVal = ((curVal + str[p]) * 17) % 256;
+        //         }
 
-        free(str);
+        //         str[i] = '\0';
+        //         int is0 = 0;
+        //         int foc = parse_num(str + i + 1, &is0);
+        //         boxes[curVal].lenses[foc - 1].isPresent = 1;
+        //         boxes[curVal].lenses[foc - 1].focalLength = foc;
+        //         boxes[curVal].lenses[foc - 1].lid = str;
+        //         break;
+        //     }
+
+        //     if (str[i] == '-') {
+        //         int curVal = 0;
+        //         for (int p = 0; p < i; p++) {
+        //             curVal = ((curVal + str[p]) * 17) % 256;
+        //         }
+
+        //         str[i] = '\0';
+        //         for (int lens = 0; lens < 9; lens++) {
+        //             if (boxes[curVal].lenses[lens].lid && strncmp(boxes[curVal].lenses[lens].lid, str, i) == 0) {
+        //                 boxes[curVal].lenses[lens].isPresent = 0;
+        //                 boxes[curVal].lenses[lens].focalLength = 0;
+        //                 free(boxes[curVal].lenses[lens].lid);
+        //                 boxes[curVal].lenses[lens].lid = NULL;
+        //             }
+        //         }
+
+                
+        //     }
+            
+        // }
+        // ----------------------------
+        
+        // sum += curVal;
+
         if (brk) {
             break;
         }
 
 
     }
+
+    
     
     printf("Sum: %d", sum);
     return 0;
